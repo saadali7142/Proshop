@@ -1,4 +1,4 @@
-import mongoose, { mongo, Mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 const reviewSchema = mongoose.Schema(
   {
@@ -38,7 +38,7 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    reviews: [],
+    reviews: [reviewSchema],
     rating: {
       type: Number,
       required: true,
@@ -65,6 +65,6 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const Product = mongoose.model('User', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 export default Product;

@@ -16,7 +16,8 @@ import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions';
 import { PRODUCT_DETAILS_RESET } from '../constants/productConstants';
 
-const ProductScreen = ({ match }) => {
+const ProductScreen = ({ history, match }) => {
+  console.log({ history });
   const [qty, setQty] = useState(0);
   const dispatch = useDispatch();
   console.log({ match });
@@ -31,6 +32,10 @@ const ProductScreen = ({ match }) => {
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
+
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
 
   // const product = products.find((p) => p._id === match.params.id);
 
@@ -47,21 +52,21 @@ const ProductScreen = ({ match }) => {
   // }, []);
   return (
     <>
-      <Link className='btn btn-dark my-3' to='/'>
+      <Link className="btn btn-dark my-3" to="/">
         Go Back
       </Link>
 
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <Row>
           <Col md={6}>
             <Image src={product.image} alt={product.name} fluid />
           </Col>
           <Col md={3}>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
@@ -79,7 +84,7 @@ const ProductScreen = ({ match }) => {
           </Col>
           <Col md={3}>
             <Card>
-              <ListGroup variant='flush'>
+              <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
@@ -102,13 +107,13 @@ const ProductScreen = ({ match }) => {
                       <Col>Qty</Col>
                       <Col>
                         <Form.Control
-                          as='select'
+                          as="select"
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>
-                              {x + 1}{' '}
+                              {x + 1}
                             </option>
                           ))}
                         </Form.Control>
@@ -118,8 +123,9 @@ const ProductScreen = ({ match }) => {
                 )}
                 <ListGroup.Item>
                   <Button
-                    className='d-grid m-0'
-                    type='button'
+                    onClick={addToCartHandler}
+                    className="d-grid m-0"
+                    type="button"
                     disabled={product.countInStock === 0}
                   >
                     Add to Cart
