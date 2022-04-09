@@ -18,7 +18,7 @@ import { PRODUCT_DETAILS_RESET } from '../constants/productConstants';
 
 const ProductScreen = ({ history, match }) => {
   console.log({ history });
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   console.log({ match });
 
