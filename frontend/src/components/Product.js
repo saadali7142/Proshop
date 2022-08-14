@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
 const Product = ({ product }) => {
-  console.log("🚀 ~ file: Product.js ~ line 7 ~ Product ~ product", product);
   return (
     <div>
       <Card className="my-3 p-3 rounded">
@@ -23,7 +22,6 @@ const Product = ({ product }) => {
             </div>
             Replacing it With the Rating Component
             */}
-            {console.log("sssssssssssssssssssss", product.numReviews)}
             <Rating
               value={product.rating}
               text={`${product.numReviews} reviews`}
