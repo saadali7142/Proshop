@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import mongoose from 'mongoose';
-=======
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
->>>>>>> master
 
 const userSchema = mongoose.Schema(
   {
@@ -29,13 +25,6 @@ const userSchema = mongoose.Schema(
   {
     timestamps: true,
   }
-<<<<<<< HEAD
-);
-
-const User = mongoose.model('User', userSchema);
-
-export default User;
-=======
 )
 
 userSchema.methods.matchPassword = async function (enteredPassword) {
@@ -54,4 +43,3 @@ userSchema.pre('save', async function (next) {
 const User = mongoose.model('User', userSchema)
 
 export default User
->>>>>>> master

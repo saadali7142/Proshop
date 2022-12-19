@@ -1,17 +1,6 @@
 {
   "name": "proshop",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node backend/serverWithNoDb",
-    "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder ",
-=======
   "description": "Mern Shopping app",
   "main": "server.js",
   "type": "module",
@@ -21,23 +10,12 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "data:import": "node backend/seeder",
->>>>>>> master
     "data:destroy": "node backend/seeder -d"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-<<<<<<< HEAD
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-async-handler": "^1.2.0",
-    "mongoose": "^6.1.8"
-  },
-  "devDependencies": {
-    "concurrently": "^6.2.1",
-    "nodemon": "^2.0.12"
-=======
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
@@ -47,6 +25,5 @@
   "devDependencies": {
     "concurrently": "^7.3.0",
     "nodemon": "^2.0.19"
->>>>>>> master
   }
 }
