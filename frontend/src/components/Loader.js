@@ -1,9 +1,5 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 const Loader = () => {
   return (
     <Spinner
@@ -16,11 +12,7 @@ const Loader = () => {
         display: "block",
       }}
     >
-<<<<<<< HEAD
-      {/* <span className="sr-only">Loading....</span> */}
-=======
       <span className="sr-only">Loading...</span>
->>>>>>> master
     </Spinner>
   );
 };

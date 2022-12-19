@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import mongoose from 'mongoose';
-=======
 import mongoose from 'mongoose'
->>>>>>> master
 
 const orderSchema = mongoose.Schema(
   {
@@ -19,11 +15,7 @@ const orderSchema = mongoose.Schema(
         price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-<<<<<<< HEAD
-          require: true,
-=======
           required: true,
->>>>>>> master
           ref: 'Product',
         },
       },
@@ -79,16 +71,8 @@ const orderSchema = mongoose.Schema(
   {
     timestamps: true,
   }
-<<<<<<< HEAD
-);
-
-const Order = mongoose.model('Order', orderSchema);
-
-export default Order;
-=======
 )
 
 const Order = mongoose.model('Order', orderSchema)
 
 export default Order
->>>>>>> master

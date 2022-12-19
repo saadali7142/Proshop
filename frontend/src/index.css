@@ -3,22 +3,8 @@ main {
 }
 
 h3 {
-<<<<<<< HEAD
-  padding: 1rem;
-}
-
-h1 {
-  font-size: 1.8rem;
   padding: 1rem 0;
 }
-h1 {
-  font-size: 1.4rem;
-  padding: 0.5rem 0;
-}
-=======
-  padding: 1rem 0;
-}
->>>>>>> master
 .rating span {
   margin: 0.1rem;
 }

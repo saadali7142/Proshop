@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import {
-  productListReducer,
-  productDetailsReducer,
-} from './reducers/productReducers';
-import { cartReducer } from './reducers/cartReducer';
-
-=======
 import {
   legacy_createStore as createStore,
   combineReducers,
@@ -27,21 +16,10 @@ import {
   userRegisterReducer,
   userUpdateProfileReducer,
 } from "./reducers/userReduers";
->>>>>>> master
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
-<<<<<<< HEAD
-});
-
-const cartItemsFromStorage = localStorage.getItem('cartItems')
-  ? JSON.parse(localStorage.getItem('cartItems'))
-  : [];
-
-const initialState = {
-  cart: { cartItems: cartItemsFromStorage },
-=======
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
@@ -64,7 +42,6 @@ const initialState = {
     shippingAddress: shippingAddressFromStorage,
   },
   userLogin: { userInfo: userInfoFromStorage },
->>>>>>> master
 };
 
 const middleware = [thunk];

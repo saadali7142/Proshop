@@ -1,9 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 const Footer = () => {
   return (
     <footer>

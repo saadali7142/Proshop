@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-=======
 import React, { useEffect, useState } from "react";
->>>>>>> master
 import {
   Row,
   Col,
@@ -13,52 +7,6 @@ import {
   Card,
   Button,
   Form,
-<<<<<<< HEAD
-} from 'react-bootstrap';
-import Rating from '../components/Rating';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
-import { listProductDetails } from '../actions/productActions';
-import { PRODUCT_DETAILS_RESET } from '../constants/productConstants';
-
-const ProductScreen = ({ history, match }) => {
-  console.log({ history });
-  const [qty, setQty] = useState(1);
-  const dispatch = useDispatch();
-  console.log({ match });
-
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, product, error } = productDetails;
-
-  useEffect(() => {
-    dispatch({ type: PRODUCT_DETAILS_RESET });
-  }, []);
-
-  useEffect(() => {
-    dispatch(listProductDetails(match.params.id));
-  }, [dispatch, match]);
-
-  const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`);
-  };
-
-  // const product = products.find((p) => p._id === match.params.id);
-
-  // const [product, setProduct] = useState({});
-
-  // useEffect(() => {
-  //   const fetchProduct = async () => {
-  //     const { data } = await axios.get(`/api/products/${match.params.id}`);
-  //     // console.log(response.data);
-  //     setProduct(data);
-  //   };
-
-  //   fetchProduct();
-  // }, []);
-  return (
-    <>
-      <Link className="btn btn-dark my-3" to="/">
-=======
 } from "react-bootstrap";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Rating from "../components/Rating";
@@ -85,26 +33,17 @@ const ProductScreen = () => {
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
->>>>>>> master
         Go Back
       </Link>
 
       {loading ? (
         <Loader />
       ) : error ? (
-<<<<<<< HEAD
-        <Message variant="danger">{error}</Message>
-      ) : (
-        <Row>
-          <Col md={6}>
-            <Image src={product.image} alt={product.name} fluid />
-=======
         <Message variant="danger" />
       ) : (
         <Row>
           <Col md={6}>
             <Image fluid src={product.image} alt={product.name} />
->>>>>>> master
           </Col>
           <Col md={3}>
             <ListGroup variant="flush">
@@ -134,26 +73,15 @@ const ProductScreen = () => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                 <ListGroup.Item>
                   <Row>
                     <Col>Status:</Col>
                     <Col>
-<<<<<<< HEAD
-                      {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-=======
                       {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
                     </Col>
                   </Row>
                 </ListGroup.Item>
 
->>>>>>> master
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <Row>
@@ -174,16 +102,6 @@ const ProductScreen = () => {
                     </Row>
                   </ListGroup.Item>
                 )}
-<<<<<<< HEAD
-                <ListGroup.Item>
-                  <Button
-                    onClick={addToCartHandler}
-                    className="d-grid m-0"
-                    type="button"
-                    disabled={product.countInStock === 0}
-                  >
-                    Add to Cart
-=======
 
                 <ListGroup.Item>
                   <Button
@@ -193,7 +111,6 @@ const ProductScreen = () => {
                     disabled={product.countInStock === 0}
                   >
                     Add To Cart
->>>>>>> master
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
