@@ -5,6 +5,10 @@ node_modules
 node_modules/
 /.pnp
 .pnp.js
+<<<<<<< HEAD
+=======
+package-lock.json
+>>>>>>> master
 
 # testing
 /coverage
@@ -14,8 +18,13 @@ node_modules/
 
 # misc
 .DS_Store
+<<<<<<< HEAD
 .env.local
 .env
+=======
+.env
+.env.local
+>>>>>>> master
 .env.development.local
 .env.test.local
 .env.production.local

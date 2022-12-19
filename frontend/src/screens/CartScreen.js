@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
   Col,
@@ -8,18 +9,25 @@ import {
   Form,
   Button,
   Card,
-} from 'react-bootstrap';
-import Message from '../components/Message';
-import { addToCart, removeFromCart } from '../actions/cartsAction';
-import { useDispatch, useSelector } from 'react-redux';
-const CartScreen = ({ match, location, history }) => {
-  const productId = match.params.id;
-  const qty = location.search ? Number(location.search.split('=')[1]) : 1;
+} from "react-bootstrap";
+import Message from "../components/Message";
+import { addToCart, removeFromCart } from "../actions/cartActions";
+
+const CartScreen = () => {
+  let params = useParams();
+
+  let navigate = useNavigate();
+
+  let location = useLocation();
+
+  const productId = params.id;
+
+  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cartItems);
 
   useEffect(() => {
     if (productId) {
@@ -30,17 +38,19 @@ const CartScreen = ({ match, location, history }) => {
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
+
   const checkoutHandler = () => {
-    console.log('checkout');
-    history.push('/login?redirect=shipping');
+    navigate("/login?redirect=shipping");
+    // for navigation
   };
+
   return (
     <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Your Cart is Empty <Link to="/">Go Back</Link>
+            Your cart is empty <Link to="/">Go Back</Link>
           </Message>
         ) : (
           <ListGroup variant="flush">
@@ -51,9 +61,9 @@ const CartScreen = ({ match, location, history }) => {
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/product/${item.prodcut}`}>{item.name}</Link>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
-                  <Col md={2}>{item.price}</Col>
+                  <Col md={2}>${item.price}</Col>
                   <Col md={2}>
                     <Form.Control
                       as="select"
@@ -86,7 +96,6 @@ const CartScreen = ({ match, location, history }) => {
           </ListGroup>
         )}
       </Col>
-
       <Col md={4}>
         <Card>
           <ListGroup variant="flush">
@@ -95,7 +104,7 @@ const CartScreen = ({ match, location, history }) => {
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 items
               </h2>
-              ${' '}
+              $
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
@@ -107,7 +116,7 @@ const CartScreen = ({ match, location, history }) => {
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Proceed to Checkout
+                Proceed To Checkout
               </Button>
             </ListGroup.Item>
           </ListGroup>

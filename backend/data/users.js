@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import bcrypt from 'bcryptjs';
+=======
+import bcrypt from 'bcryptjs'
+
+>>>>>>> master
 const users = [
   {
     name: 'Admin User',
@@ -16,6 +21,12 @@ const users = [
     email: 'jane@example.com',
     password: bcrypt.hashSync('123456', 10),
   },
+<<<<<<< HEAD
 ];
 
 export default users;
+=======
+]
+
+export default users
+>>>>>>> master

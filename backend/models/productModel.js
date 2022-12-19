@@ -1,15 +1,31 @@
+<<<<<<< HEAD
 import mongoose from 'mongoose';
+=======
+import mongoose from 'mongoose'
+>>>>>>> master
 
 const reviewSchema = mongoose.Schema(
   {
     name: { type: String, required: true },
     rating: { type: Number, required: true },
     comment: { type: String, required: true },
+<<<<<<< HEAD
+=======
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+>>>>>>> master
   },
   {
     timestamps: true,
   }
+<<<<<<< HEAD
 );
+=======
+)
+>>>>>>> master
 
 const productSchema = mongoose.Schema(
   {
@@ -63,8 +79,16 @@ const productSchema = mongoose.Schema(
   {
     timestamps: true,
   }
+<<<<<<< HEAD
 );
 
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;
+=======
+)
+
+const Product = mongoose.model('Product', productSchema)
+
+export default Product
+>>>>>>> master
