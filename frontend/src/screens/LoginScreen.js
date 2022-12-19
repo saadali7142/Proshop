@@ -11,7 +11,15 @@ const LoginScreen = () => {
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  console.log(
+    "🚀 ~ file: LoginScreen.js ~ line 15 ~ LoginScreen ~ location.search",
+    location.search
+  );
   const redirect = location.search ? location.search.split("=")[1] : "/";
+  console.log(
+    "🚀 ~ file: LoginScreen.js ~ line 16 ~ LoginScreen ~ redirect",
+    redirect
+  );
 
   const dispatch = useDispatch();
 
@@ -64,6 +72,10 @@ const LoginScreen = () => {
         <Col>
           New Customer?
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            {console.log(
+              "🚀 ~ file: LoginScreen.js ~ line 75 ~ LoginScreen ~ redirect",
+              redirect
+            )}
             Register
           </Link>
         </Col>

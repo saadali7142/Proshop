@@ -19,18 +19,10 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const userDetails = useSelector((state) => state.userDetails);
-  console.log(
-    "🚀 ~ file: ProfileScreen.js ~ line 22 ~ ProfileScreen ~ userDetails",
-    userDetails
-  );
 
   const { loading, error, user } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
-  console.log(
-    "🚀 ~ file: ProfileScreen.js ~ line 171 ~ ProfileScreen ~ userLogin",
-    userLogin.userInfo
-  );
 
   const { userInfo } = userLogin;
 
