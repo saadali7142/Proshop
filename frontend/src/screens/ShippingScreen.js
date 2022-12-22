@@ -4,17 +4,12 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useLocation, useNavigate } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(
-    "🚀 ~ file: ShippingScreen.js ~ line 9 ~ ShippingScreen ~ cart",
-    cart
-  );
+  
   const { shippingAddress } = cart;
-  console.log(
-    "🚀 ~ file: ShippingScreen.js ~ line 14 ~ ShippingScreen ~ shippingAddress",
-    shippingAddress
-  );
+  
   let location = useLocation();
   let navigate = useNavigate();
 
@@ -30,7 +25,11 @@ const ShippingScreen = () => {
     navigate("/payment");
   };
   return (
+    <div className="shipping-form-width" >
+
+    
     <FormContainer>
+      <CheckoutSteps step1 step2/>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
           <Form.Label>Address</Form.Label>
@@ -77,6 +76,7 @@ const ShippingScreen = () => {
         </Button>
       </Form>
     </FormContainer>
+    </div>
   );
 };
 
